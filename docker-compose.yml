@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+    rabbitmq:
+        image: rabbitmq:3-management
+        hostname: "rabbitmq"
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+    web:
+        hostname: 'crawler'
+        build: 
+            context: server
+        ports:
+            - "5000:5000"
+        volumes:
+            - data-volume:/pdfs
+
+
+    worker:
+        hostname: 'worker'
+        build: 
+            context: worker
+        volumes:
+            - data-volume:/pdfs
+
+
+volumes:
+    data-volume: 
+
