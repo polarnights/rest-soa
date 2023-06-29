@@ -6,7 +6,7 @@ COPY . .
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
 RUN apt-get install -y make curl
-RUN make install_python3.9
+RUN make install
 RUN make requirements
 
 EXPOSE 8000 5672

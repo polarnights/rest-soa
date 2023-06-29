@@ -25,18 +25,18 @@ python3 setup.py install
 ### 1. Запускаем сервер
 
 ``` 
-RUN_ARGS="--host 0.0.0.0 --port 8000 --rabbitmq_host localhost --rabbitmq_port 5672 --rabbitmq_queue rabbitmqqueue" make server
-```
-
----
-
-### 2. Запускаем воркер
-
-``` 
 RUN_ARGS="--host localhost --port 5672 --queue rabbitmqqueue" make worker
 ```
 
 ---
+
+### 2. Запускаем клиента(ов)
+
+``` 
+RUN_ARGS="--host 0.0.0.0 --port 8000 --rabbitmq_host localhost --rabbitmq_port 5672 --rabbitmq_queue rabbitmqqueue" make server
+```
+
+—
 
 ### 3. Тестируем
 
@@ -53,7 +53,8 @@ curl -X 'GET' \
 Или же с Docker:
 
 ```
-docker run --rm -it -p 15672:15672 -p 8000:8000 -f Dockerfile
+docker build -f Dockerfile -t rq
+docker run --rm -it -p 15672:15672 -p 8000:8000 -f Dockerfile -t rq
 ```
 
 RabbitMQ мониторинг:

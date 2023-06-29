@@ -1,0 +1,8 @@
+borb
+click
+fastapi
+pathlib
+pika
+python-multipart
+sqlalchemy==1.4
+uvicorn[standard]
