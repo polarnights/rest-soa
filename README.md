@@ -25,18 +25,18 @@ python3 setup.py install
 ### 1. Запускаем сервер
 
 ``` 
-RUN_ARGS="--host localhost --port 5672 --queue rabbitmqqueue" make worker
+RUN_ARGS="--host 0.0.0.0 --port 8000 --rabbitmq_host localhost --rabbitmq_port 5672 --rabbitmq_queue rabbitmqqueue" make server
 ```
 
 ---
 
-### 2. Запускаем клиента(ов)
+### 2. Запускаем воркер
 
 ``` 
-RUN_ARGS="--host 0.0.0.0 --port 8000 --rabbitmq_host localhost --rabbitmq_port 5672 --rabbitmq_queue rabbitmqqueue" make server
+RUN_ARGS="--host localhost --port 5672 --queue rabbitmqqueue" make worker
 ```
 
-—
+---
 
 ### 3. Тестируем
 
