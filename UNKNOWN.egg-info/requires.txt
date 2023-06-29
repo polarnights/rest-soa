@@ -1,0 +1,5 @@
+aiohttp
+click
+strawberry-graphql[debug-server]
+simple-term-menu
+gql[all]
